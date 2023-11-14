@@ -18,6 +18,8 @@ export default class Chat extends Component<IChatProps, IChatState> {
         this.botman.setChatServer(this.props.conf.chatServer);
         //this.state.messages = [];
         //this.state.replyType = ReplyType.Text;
+        var messages = localStorage.getItem("messages");
+        messages = (messages !== null) ? JSON.parse(messages) : [];
         this.setState({ messages : [] });
         this.setState({ replyType : ReplyType.Text });
     }

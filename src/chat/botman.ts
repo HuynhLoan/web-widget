@@ -28,7 +28,7 @@ class BotMan {
 
     	axios.post(this.chatServer, data).then(response => {
     		const messages = response.data.messages || [];
-
+			localStorage.setItem("messages", JSON.stringify(messages));
 			if (perMessageCallback) {
 				messages.forEach((msg: IMessage) => {
 					perMessageCallback(msg);
